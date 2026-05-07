@@ -1,0 +1,100 @@
+name: Deploy Dashboard Pages
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [dashboard-data-updated]
+  schedule:
+    - cron: "*/15 * * * *"
+  push:
+    branches: ["main"]
+    paths:
+      - "dashboard/**"
+      - ".github/workflows/deploy-dashboard-pages.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static site artifact
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp -R dashboard/. _site/
+          mkdir -p _site/dashboard-data
+          if git ls-remote --exit-code --heads origin dashboard-data-live >/dev/null 2>&1; then
+            git fetch --depth=1 origin dashboard-data-live
+            if git show origin/dashboard-data-live:dashboard-data/latest.json > _site/dashboard-data/latest.json 2>/dev/null; then
+              echo "Using dashboard-data/latest.json from dashboard-data-live branch."
+            else
+              echo "dashboard-data-live exists but latest.json is missing; writing fallback payload."
+            fi
+          else
+            echo "dashboard-data-live branch not found; writing fallback payload."
+          fi
+          if [ ! -s _site/dashboard-data/latest.json ]; then
+            now_utc="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+            cat > _site/dashboard-data/latest.json <<EOF
+          {
+            "schema_version": "dashboard-v1",
+            "generated_at_utc": "${now_utc}",
+            "source": {
+              "state_dir": "engine_state",
+              "status": "no_live_data_published"
+            },
+            "meta": {
+              "window_label": "all",
+              "freshness_seconds": 0,
+              "status_message": "Live dashboard data is not available yet. Publish dashboard-data/latest.json to the dashboard-data-live branch."
+            },
+            "predictions": {
+              "individual_top10": [],
+              "pairs_top10": [],
+              "triplets_top3": [],
+              "quads_top3_non_overlapping_triplets": [],
+              "selection_rules": {
+                "quad_no_triplet_overlap": true
+              }
+            },
+            "reconciliation": {
+              "totals": {
+                "window": "all",
+                "pair_hits": 0,
+                "triplet_hits": 0,
+                "quad_hits": 0
+              },
+              "recent_points": []
+            },
+            "sequences": {
+              "last_20_full": []
+            }
+          }
+          EOF
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
