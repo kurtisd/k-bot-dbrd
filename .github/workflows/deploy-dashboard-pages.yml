@@ -7,9 +7,12 @@ on:
   schedule:
     - cron: "*/15 * * * *"
   push:
-    branches: ["main"]
+    branches:
+      - main
+      - dashboard-data-live
     paths:
       - "dashboard/**"
+      - "dashboard-data/latest.json"
       - ".github/workflows/deploy-dashboard-pages.yml"
 
 env:
