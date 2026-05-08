@@ -2,14 +2,8 @@ name: Deploy Dashboard Pages
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [dashboard-data-updated]
-  schedule:
-    - cron: "*/15 * * * *"
   push:
-    branches:
-      - main
-      - dashboard-data-live
+    branches: ["main"]
     paths:
       - "dashboard/**"
       - "dashboard-data/latest.json"
@@ -46,15 +40,11 @@ jobs:
           mkdir -p _site
           cp -R dashboard/. _site/
           mkdir -p _site/dashboard-data
-          if git ls-remote --exit-code --heads origin dashboard-data-live >/dev/null 2>&1; then
-            git fetch --depth=1 origin dashboard-data-live
-            if git show origin/dashboard-data-live:dashboard-data/latest.json > _site/dashboard-data/latest.json 2>/dev/null; then
-              echo "Using dashboard-data/latest.json from dashboard-data-live branch."
-            else
-              echo "dashboard-data-live exists but latest.json is missing; writing fallback payload."
-            fi
+          if [ -f dashboard-data/latest.json ]; then
+            cp dashboard-data/latest.json _site/dashboard-data/latest.json
+            echo "Using dashboard-data/latest.json from main."
           else
-            echo "dashboard-data-live branch not found; writing fallback payload."
+            echo "dashboard-data/latest.json missing on main; writing fallback payload."
           fi
           if [ ! -s _site/dashboard-data/latest.json ]; then
             now_utc="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
@@ -69,7 +59,7 @@ jobs:
             "meta": {
               "window_label": "all",
               "freshness_seconds": 0,
-              "status_message": "Live dashboard data is not available yet. Publish dashboard-data/latest.json to the dashboard-data-live branch."
+              "status_message": "Live dashboard data is not available yet. Publish dashboard-data/latest.json to main."
             },
             "predictions": {
               "individual_top10": [],
