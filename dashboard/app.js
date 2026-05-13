@@ -23,7 +23,7 @@ const REQUIRED_DOM_IDS = [
   "freshnessBadge",
   "predictionMeta",
   "individualTop10",
-  "pairsTop10",
+  "pairsTop7",
   "tripletsTop3",
   "quadsTop3",
   "pairHitsTotal",
@@ -165,8 +165,8 @@ function applyPredictionSnapshot(point) {
     (it) => `${it.number}`
   );
   renderPredictionChips(
-    document.getElementById("pairsTop10"),
-    snapshot.pairs_top10 || [],
+    document.getElementById("pairsTop7"),
+    (snapshot.pairs_top7 || snapshot.pairs_top10 || []).slice(0, 7),
     (it) => (it.values || []).join(", ")
   );
   renderPredictionChips(
@@ -346,14 +346,47 @@ function render(data) {
   }
 }
 
+function parseUtcInstant(isoUtc) {
+  if (!isoUtc || typeof isoUtc !== "string") {
+    return new Date(Number.NaN);
+  }
+  const trimmed = isoUtc.trim();
+  if (/[zZ]|[+-]\d{2}:\d{2}$/.test(trimmed)) {
+    return new Date(trimmed);
+  }
+  return new Date(`${trimmed}Z`);
+}
+
+function formatDashboardTimestamp(isoUtc) {
+  if (!isoUtc || isoUtc === "unknown") {
+    return "Updated: unknown";
+  }
+  const dt = parseUtcInstant(isoUtc);
+  if (Number.isNaN(dt.getTime())) {
+    return `Updated: ${isoUtc}`;
+  }
+  const formatted = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZoneName: "short",
+  }).format(dt);
+  return `Updated ${formatted}`;
+}
+
 function doRenderDashboard(data) {
-  const updatedAt = data.generated_at_utc || "unknown";
+  const updatedAt =
+    data.source?.prediction_captured_at_utc || data.generated_at_utc || "unknown";
   const freshness = Number(data.meta?.freshness_seconds ?? 0);
   const ua = document.getElementById("updatedAt");
   const fb = document.getElementById("freshnessBadge");
   const pm = document.getElementById("predictionMeta");
   if (ua) {
-    ua.textContent = `Updated: ${updatedAt}`;
+    ua.textContent = formatDashboardTimestamp(updatedAt);
   }
   if (fb) {
     fb.textContent = `${freshness}s old`;
@@ -370,8 +403,8 @@ function doRenderDashboard(data) {
     (it) => `${it.number}`
   );
   renderPredictionChips(
-    document.getElementById("pairsTop10"),
-    p.pairs_top10 || [],
+    document.getElementById("pairsTop7"),
+    (p.pairs_top7 || p.pairs_top10 || []).slice(0, 7),
     (it) => (it.values || []).join(", ")
   );
   renderPredictionChips(
