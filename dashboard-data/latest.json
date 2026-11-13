@@ -1,11 +1,11 @@
 {
   "schema_version": "dashboard-v1",
-  "generated_at_utc": "2026-11-13T08:30:16.120182+00:00",
+  "generated_at_utc": "2026-11-13T08:35:14.821476+00:00",
   "source": {
     "state_dir": "engine_state",
-    "prediction_id": "53134",
+    "prediction_id": "53135",
     "last_known_draw_id": 859959,
-    "prediction_captured_at_utc": "2026-11-13T08:30:09.456117+00:00",
+    "prediction_captured_at_utc": "2026-11-13T08:35:09.132428+00:00",
     "valid_for_external_draw_ids": [
       2112906,
       2112907,
@@ -34,7 +34,7 @@
     "anti_cluster_weight": 1.75,
     "anti_cluster_note": "anti-cluster weight tuned to 1.75 baseline (quad spread target ~0.78)",
     "horizon": 20,
-    "freshness_seconds": 4
+    "freshness_seconds": 3
   },
   "predictions": {
     "individual_top10": [
@@ -356,15 +356,343 @@
   "reconciliation": {
     "totals": {
       "window": "all",
-      "pair_hits": 10,
-      "triplet_hits": 8,
-      "quad_hits": 1
+      "pair_hits": 5,
+      "triplet_hits": 4,
+      "quad_hits": 0
     },
     "recent_points": [
       {
+        "prediction_id": 53135,
+        "prediction_label": "Prediction #53135",
+        "ts_utc": "2026-11-13T08:35:10.862803+00:00",
+        "actual_draws_analyzed": 0,
+        "pair_hits": 0,
+        "triplet_hits": 0,
+        "quad_hits": 0,
+        "pair_hit_instances_total": 0,
+        "triplet_hit_instances_total": 0,
+        "quad_hit_instances_total": 0,
+        "pair_hit_instances": [],
+        "triplet_hit_instances": [],
+        "quad_hit_instances": [],
+        "prediction_snapshot": {
+          "individual_top10": [
+            {
+              "rank": 1,
+              "number": 8,
+              "score": 0.040655825218154695
+            },
+            {
+              "rank": 2,
+              "number": 36,
+              "score": 0.037996978312028806
+            },
+            {
+              "rank": 3,
+              "number": 62,
+              "score": 0.03428816688790042
+            },
+            {
+              "rank": 4,
+              "number": 57,
+              "score": 0.03104016968971225
+            },
+            {
+              "rank": 5,
+              "number": 21,
+              "score": 0.026083141784097652
+            },
+            {
+              "rank": 6,
+              "number": 39,
+              "score": 0.026036950552287153
+            },
+            {
+              "rank": 7,
+              "number": 78,
+              "score": 0.02501227214565508
+            },
+            {
+              "rank": 8,
+              "number": 12,
+              "score": 0.02363438920137441
+            },
+            {
+              "rank": 9,
+              "number": 17,
+              "score": 0.022432523054176333
+            },
+            {
+              "rank": 10,
+              "number": 63,
+              "score": 0.022415373825524276
+            }
+          ],
+          "pairs_top7": [
+            {
+              "rank": 1,
+              "values": [
+                36,
+                62
+              ],
+              "score": 0.018958922026972764,
+              "raw_rank": 1,
+              "selection_score": -3.965480638889045,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.07
+            },
+            {
+              "rank": 2,
+              "values": [
+                9,
+                57
+              ],
+              "score": 0.018701517298820632,
+              "raw_rank": 3,
+              "selection_score": -3.979150619438819,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.11
+            },
+            {
+              "rank": 3,
+              "values": [
+                8,
+                23
+              ],
+              "score": 0.018132346033097945,
+              "raw_rank": 5,
+              "selection_score": -4.010057861974783,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.09
+            },
+            {
+              "rank": 4,
+              "values": [
+                21,
+                37
+              ],
+              "score": 0.01768868884785425,
+              "raw_rank": 7,
+              "selection_score": -4.03482989182448,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.12
+            },
+            {
+              "rank": 5,
+              "values": [
+                44,
+                78
+              ],
+              "score": 0.016984478810744788,
+              "raw_rank": 12,
+              "selection_score": -4.07545536310711,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.12
+            },
+            {
+              "rank": 6,
+              "values": [
+                5,
+                41
+              ],
+              "score": 0.013081920448436783,
+              "raw_rank": 38,
+              "selection_score": -4.336524120455583,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.1
+            },
+            {
+              "rank": 7,
+              "values": [
+                17,
+                48
+              ],
+              "score": 0.011726331142264344,
+              "raw_rank": 55,
+              "selection_score": -4.445918440836779,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.09
+            }
+          ],
+          "pairs_top10": [
+            {
+              "rank": 1,
+              "values": [
+                36,
+                62
+              ],
+              "score": 0.018958922026972764,
+              "raw_rank": 1,
+              "selection_score": -3.965480638889045,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.07
+            },
+            {
+              "rank": 2,
+              "values": [
+                9,
+                57
+              ],
+              "score": 0.018701517298820632,
+              "raw_rank": 3,
+              "selection_score": -3.979150619438819,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.11
+            },
+            {
+              "rank": 3,
+              "values": [
+                8,
+                23
+              ],
+              "score": 0.018132346033097945,
+              "raw_rank": 5,
+              "selection_score": -4.010057861974783,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.09
+            },
+            {
+              "rank": 4,
+              "values": [
+                21,
+                37
+              ],
+              "score": 0.01768868884785425,
+              "raw_rank": 7,
+              "selection_score": -4.03482989182448,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.12
+            },
+            {
+              "rank": 5,
+              "values": [
+                44,
+                78
+              ],
+              "score": 0.016984478810744788,
+              "raw_rank": 12,
+              "selection_score": -4.07545536310711,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.12
+            },
+            {
+              "rank": 6,
+              "values": [
+                5,
+                41
+              ],
+              "score": 0.013081920448436783,
+              "raw_rank": 38,
+              "selection_score": -4.336524120455583,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.1
+            },
+            {
+              "rank": 7,
+              "values": [
+                17,
+                48
+              ],
+              "score": 0.011726331142264344,
+              "raw_rank": 55,
+              "selection_score": -4.445918440836779,
+              "degree_penalty": 0.0,
+              "cooccurrence": 0.09
+            }
+          ],
+          "triplets_top3": [
+            {
+              "rank": 1,
+              "values": [
+                36,
+                62,
+                57
+              ],
+              "score": 0.009290328265820108
+            },
+            {
+              "rank": 2,
+              "values": [
+                8,
+                62,
+                57
+              ],
+              "score": 0.00839273017122269
+            },
+            {
+              "rank": 3,
+              "values": [
+                8,
+                57,
+                23
+              ],
+              "score": 0.008167283208023913
+            }
+          ],
+          "quads_top3_non_overlapping_triplets": [
+            {
+              "rank": 1,
+              "values": [
+                8,
+                62,
+                78,
+                23
+              ],
+              "score": 0.0032179471264396566,
+              "constraint_passed": true
+            },
+            {
+              "rank": 2,
+              "values": [
+                36,
+                62,
+                5,
+                23
+              ],
+              "score": 0.0030111172667613307,
+              "constraint_passed": true
+            },
+            {
+              "rank": 3,
+              "values": [
+                36,
+                57,
+                78,
+                23
+              ],
+              "score": 0.00298401372292844,
+              "constraint_passed": true
+            }
+          ],
+          "anti_cluster_weight": 1.75,
+          "valid_for_external_draw_ids": [
+            2112906,
+            2112907,
+            2112908,
+            2112909,
+            2112910,
+            2112911,
+            2112912,
+            2112913,
+            2112914,
+            2112915,
+            2112916,
+            2112917,
+            2112918,
+            2112919,
+            2112920,
+            2112921,
+            2112922,
+            2112923,
+            2112924,
+            2112925
+          ]
+        }
+      },
+      {
         "prediction_id": 53134,
         "prediction_label": "Prediction #53134",
-        "ts_utc": "2026-11-13T08:30:11.442842+00:00",
+        "ts_utc": "2026-11-13T08:35:10.862436+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -692,7 +1020,7 @@
       {
         "prediction_id": 53133,
         "prediction_label": "Prediction #53133",
-        "ts_utc": "2026-11-13T08:30:11.442337+00:00",
+        "ts_utc": "2026-11-13T08:35:10.862058+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -1020,7 +1348,7 @@
       {
         "prediction_id": 53132,
         "prediction_label": "Prediction #53132",
-        "ts_utc": "2026-11-13T08:30:11.441859+00:00",
+        "ts_utc": "2026-11-13T08:35:10.861623+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -1348,7 +1676,7 @@
       {
         "prediction_id": 53131,
         "prediction_label": "Prediction #53131",
-        "ts_utc": "2026-11-13T08:30:11.441388+00:00",
+        "ts_utc": "2026-11-13T08:35:10.861252+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -1676,7 +2004,7 @@
       {
         "prediction_id": 53130,
         "prediction_label": "Prediction #53130",
-        "ts_utc": "2026-11-13T08:30:11.440963+00:00",
+        "ts_utc": "2026-11-13T08:35:10.860861+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -2004,7 +2332,7 @@
       {
         "prediction_id": 53129,
         "prediction_label": "Prediction #53129",
-        "ts_utc": "2026-11-13T08:30:11.440489+00:00",
+        "ts_utc": "2026-11-13T08:35:10.860451+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -2332,7 +2660,7 @@
       {
         "prediction_id": 53128,
         "prediction_label": "Prediction #53128",
-        "ts_utc": "2026-11-13T08:30:11.440036+00:00",
+        "ts_utc": "2026-11-13T08:35:10.860029+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -2660,7 +2988,7 @@
       {
         "prediction_id": 53127,
         "prediction_label": "Prediction #53127",
-        "ts_utc": "2026-11-13T08:30:11.439562+00:00",
+        "ts_utc": "2026-11-13T08:35:10.859615+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -2988,7 +3316,7 @@
       {
         "prediction_id": 53126,
         "prediction_label": "Prediction #53126",
-        "ts_utc": "2026-11-13T08:30:11.439061+00:00",
+        "ts_utc": "2026-11-13T08:35:10.859242+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -3316,7 +3644,7 @@
       {
         "prediction_id": 53125,
         "prediction_label": "Prediction #53125",
-        "ts_utc": "2026-11-13T08:30:11.438566+00:00",
+        "ts_utc": "2026-11-13T08:35:10.858848+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -3644,7 +3972,7 @@
       {
         "prediction_id": 53124,
         "prediction_label": "Prediction #53124",
-        "ts_utc": "2026-11-13T08:30:11.437966+00:00",
+        "ts_utc": "2026-11-13T08:35:10.858445+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -3972,7 +4300,7 @@
       {
         "prediction_id": 53123,
         "prediction_label": "Prediction #53123",
-        "ts_utc": "2026-11-13T08:30:11.437232+00:00",
+        "ts_utc": "2026-11-13T08:35:10.858009+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -4300,7 +4628,7 @@
       {
         "prediction_id": 53122,
         "prediction_label": "Prediction #53122",
-        "ts_utc": "2026-11-13T08:30:11.436508+00:00",
+        "ts_utc": "2026-11-13T08:35:10.857537+00:00",
         "actual_draws_analyzed": 0,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -4628,7 +4956,7 @@
       {
         "prediction_id": 53121,
         "prediction_label": "Prediction #53121",
-        "ts_utc": "2026-11-13T08:30:11.435694+00:00",
+        "ts_utc": "2026-11-13T08:35:10.857108+00:00",
         "actual_draws_analyzed": 1,
         "pair_hits": 1,
         "triplet_hits": 0,
@@ -4953,7 +5281,7 @@
       {
         "prediction_id": 53120,
         "prediction_label": "Prediction #53120",
-        "ts_utc": "2026-11-13T08:30:11.431809+00:00",
+        "ts_utc": "2026-11-13T08:35:10.854134+00:00",
         "actual_draws_analyzed": 3,
         "pair_hits": 1,
         "triplet_hits": 0,
@@ -5289,7 +5617,7 @@
       {
         "prediction_id": 53119,
         "prediction_label": "Prediction #53119",
-        "ts_utc": "2026-11-13T08:30:11.422844+00:00",
+        "ts_utc": "2026-11-13T08:35:10.846621+00:00",
         "actual_draws_analyzed": 4,
         "pair_hits": 1,
         "triplet_hits": 0,
@@ -5625,7 +5953,7 @@
       {
         "prediction_id": 53118,
         "prediction_label": "Prediction #53118",
-        "ts_utc": "2026-11-13T08:30:11.410175+00:00",
+        "ts_utc": "2026-11-13T08:35:10.835743+00:00",
         "actual_draws_analyzed": 5,
         "pair_hits": 0,
         "triplet_hits": 0,
@@ -5942,7 +6270,7 @@
       {
         "prediction_id": 53117,
         "prediction_label": "Prediction #53117",
-        "ts_utc": "2026-11-13T08:30:11.395164+00:00",
+        "ts_utc": "2026-11-13T08:35:10.821073+00:00",
         "actual_draws_analyzed": 6,
         "pair_hits": 1,
         "triplet_hits": 4,
@@ -6311,7 +6639,7 @@
       {
         "prediction_id": 53116,
         "prediction_label": "Prediction #53116",
-        "ts_utc": "2026-11-13T08:30:11.374744+00:00",
+        "ts_utc": "2026-11-13T08:35:10.801044+00:00",
         "actual_draws_analyzed": 8,
         "pair_hits": 1,
         "triplet_hits": 0,
@@ -6641,413 +6969,6 @@
             2112914,
             2112915,
             2112916
-          ]
-        }
-      },
-      {
-        "prediction_id": 53115,
-        "prediction_label": "Prediction #53115",
-        "ts_utc": "2026-11-13T08:30:11.340159+00:00",
-        "actual_draws_analyzed": 9,
-        "pair_hits": 5,
-        "triplet_hits": 4,
-        "quad_hits": 1,
-        "pair_hit_instances_total": 5,
-        "triplet_hit_instances_total": 4,
-        "quad_hit_instances_total": 1,
-        "pair_hit_instances": [
-          {
-            "values": [
-              5,
-              36
-            ],
-            "hit_count": 1
-          },
-          {
-            "values": [
-              18,
-              21
-            ],
-            "hit_count": 1
-          },
-          {
-            "values": [
-              18,
-              50
-            ],
-            "hit_count": 1
-          },
-          {
-            "values": [
-              21,
-              77
-            ],
-            "hit_count": 1
-          },
-          {
-            "values": [
-              26,
-              40
-            ],
-            "hit_count": 1
-          }
-        ],
-        "triplet_hit_instances": [
-          {
-            "values": [
-              5,
-              18,
-              21
-            ],
-            "hit_count": 1
-          },
-          {
-            "values": [
-              5,
-              21,
-              77
-            ],
-            "hit_count": 1
-          },
-          {
-            "values": [
-              18,
-              21,
-              77
-            ],
-            "hit_count": 1
-          },
-          {
-            "values": [
-              21,
-              50,
-              77
-            ],
-            "hit_count": 1
-          }
-        ],
-        "quad_hit_instances": [
-          {
-            "values": [
-              18,
-              21,
-              50,
-              77
-            ],
-            "hit_count": 1
-          }
-        ],
-        "prediction_snapshot": {
-          "individual_top10": [
-            {
-              "rank": 1,
-              "number": 21,
-              "score": 0.04729007784214561
-            },
-            {
-              "rank": 2,
-              "number": 77,
-              "score": 0.04659167467858716
-            },
-            {
-              "rank": 3,
-              "number": 36,
-              "score": 0.03602463990358381
-            },
-            {
-              "rank": 4,
-              "number": 8,
-              "score": 0.02775831966649395
-            },
-            {
-              "rank": 5,
-              "number": 50,
-              "score": 0.027536852648725768
-            },
-            {
-              "rank": 6,
-              "number": 70,
-              "score": 0.025663905972245264
-            },
-            {
-              "rank": 7,
-              "number": 32,
-              "score": 0.024985174805494007
-            },
-            {
-              "rank": 8,
-              "number": 18,
-              "score": 0.02387543419407154
-            },
-            {
-              "rank": 9,
-              "number": 65,
-              "score": 0.023492764068114038
-            },
-            {
-              "rank": 10,
-              "number": 33,
-              "score": 0.022060517038097336
-            }
-          ],
-          "pairs_top7": [
-            {
-              "rank": 1,
-              "values": [
-                18,
-                21
-              ],
-              "score": 0.03567146304596471,
-              "raw_rank": 1,
-              "selection_score": -3.333404264305442,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.15
-            },
-            {
-              "rank": 2,
-              "values": [
-                21,
-                77
-              ],
-              "score": 0.034338733024863934,
-              "raw_rank": 2,
-              "selection_score": -3.7214813192177925,
-              "degree_penalty": 0.35,
-              "cooccurrence": 0.09
-            },
-            {
-              "rank": 3,
-              "values": [
-                28,
-                77
-              ],
-              "score": 0.023745344566863075,
-              "raw_rank": 4,
-              "selection_score": -4.090368785952917,
-              "degree_penalty": 0.35,
-              "cooccurrence": 0.11
-            },
-            {
-              "rank": 4,
-              "values": [
-                5,
-                36
-              ],
-              "score": 0.015942114328902694,
-              "raw_rank": 22,
-              "selection_score": -4.138790971448822,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.09
-            },
-            {
-              "rank": 5,
-              "values": [
-                26,
-                40
-              ],
-              "score": 0.014653890468605536,
-              "raw_rank": 28,
-              "selection_score": -4.223049417777176,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.13
-            },
-            {
-              "rank": 6,
-              "values": [
-                18,
-                50
-              ],
-              "score": 0.019679974338824766,
-              "raw_rank": 11,
-              "selection_score": -4.2781536912803855,
-              "degree_penalty": 0.35,
-              "cooccurrence": 0.12
-            },
-            {
-              "rank": 7,
-              "values": [
-                8,
-                70
-              ],
-              "score": 0.012219089560908634,
-              "raw_rank": 46,
-              "selection_score": -4.4047558320315465,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.07
-            }
-          ],
-          "pairs_top10": [
-            {
-              "rank": 1,
-              "values": [
-                18,
-                21
-              ],
-              "score": 0.03567146304596471,
-              "raw_rank": 1,
-              "selection_score": -3.333404264305442,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.15
-            },
-            {
-              "rank": 2,
-              "values": [
-                21,
-                77
-              ],
-              "score": 0.034338733024863934,
-              "raw_rank": 2,
-              "selection_score": -3.7214813192177925,
-              "degree_penalty": 0.35,
-              "cooccurrence": 0.09
-            },
-            {
-              "rank": 3,
-              "values": [
-                28,
-                77
-              ],
-              "score": 0.023745344566863075,
-              "raw_rank": 4,
-              "selection_score": -4.090368785952917,
-              "degree_penalty": 0.35,
-              "cooccurrence": 0.11
-            },
-            {
-              "rank": 4,
-              "values": [
-                5,
-                36
-              ],
-              "score": 0.015942114328902694,
-              "raw_rank": 22,
-              "selection_score": -4.138790971448822,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.09
-            },
-            {
-              "rank": 5,
-              "values": [
-                26,
-                40
-              ],
-              "score": 0.014653890468605536,
-              "raw_rank": 28,
-              "selection_score": -4.223049417777176,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.13
-            },
-            {
-              "rank": 6,
-              "values": [
-                18,
-                50
-              ],
-              "score": 0.019679974338824766,
-              "raw_rank": 11,
-              "selection_score": -4.2781536912803855,
-              "degree_penalty": 0.35,
-              "cooccurrence": 0.12
-            },
-            {
-              "rank": 7,
-              "values": [
-                8,
-                70
-              ],
-              "score": 0.012219089560908634,
-              "raw_rank": 46,
-              "selection_score": -4.4047558320315465,
-              "degree_penalty": 0.0,
-              "cooccurrence": 0.07
-            }
-          ],
-          "triplets_top3": [
-            {
-              "rank": 1,
-              "values": [
-                21,
-                77,
-                18
-              ],
-              "score": 0.016085091447212676
-            },
-            {
-              "rank": 2,
-              "values": [
-                21,
-                77,
-                8
-              ],
-              "score": 0.013140649478135643
-            },
-            {
-              "rank": 3,
-              "values": [
-                21,
-                77,
-                28
-              ],
-              "score": 0.01294801237012903
-            }
-          ],
-          "quads_top3_non_overlapping_triplets": [
-            {
-              "rank": 1,
-              "values": [
-                21,
-                77,
-                36,
-                5
-              ],
-              "score": 0.005181455217784811,
-              "constraint_passed": true
-            },
-            {
-              "rank": 2,
-              "values": [
-                21,
-                77,
-                26,
-                40
-              ],
-              "score": 0.0043008207912567835,
-              "constraint_passed": true
-            },
-            {
-              "rank": 3,
-              "values": [
-                21,
-                36,
-                18,
-                26
-              ],
-              "score": 0.004021557605466116,
-              "constraint_passed": true
-            }
-          ],
-          "anti_cluster_weight": 1.75,
-          "valid_for_external_draw_ids": [
-            2112896,
-            2112897,
-            2112898,
-            2112899,
-            2112900,
-            2112901,
-            2112902,
-            2112903,
-            2112904,
-            2112905,
-            2112906,
-            2112907,
-            2112908,
-            2112909,
-            2112910,
-            2112911,
-            2112912,
-            2112913,
-            2112914,
-            2112915
           ]
         }
       }
